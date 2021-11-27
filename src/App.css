@@ -11,6 +11,11 @@
   font-size: 24px;
 }
 
+.fa-shopping-cart {
+  font-size: 24px;
+  margin: 0 20px;
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

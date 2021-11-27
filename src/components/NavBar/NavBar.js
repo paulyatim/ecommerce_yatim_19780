@@ -1,12 +1,14 @@
 import React from 'react'
 import logo from '../../logo.svg';
 import '../../App.css';
+import CartWidget from './CartWidget';
 
 function NavBar() {
     return (
-        <nav className="navbar navbar-expand-md navbar-light">
+        <nav className="navbar navbar-expand-md navbar-light bg-light">
             <div className="container-fluid">
-                <a className="navbar-brand" href="#" id="pageTitle">
+                <CartWidget/>
+                <a className="navbar-brand" href="{#}" id="pageTitle">
                     <img src={logo} className="App-logo" alt="logo" />
                     E-Commerce Yatim
                 </a>
@@ -16,16 +18,16 @@ function NavBar() {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-lg-0">
                         <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="#">Home</a>
+                            <a className="nav-link active" aria-current="page" href="{#}">Home</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Page 1</a>
+                            <a className="nav-link" href="{#}">Page 1</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Page 2</a>
+                            <a className="nav-link" href="{#}">Page 2</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Page 3</a>
+                            <a className="nav-link" href="{#}">Page 3</a>
                         </li>
                     </ul>
                     <form className="d-flex">
