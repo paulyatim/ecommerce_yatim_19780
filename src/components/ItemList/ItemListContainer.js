@@ -2,7 +2,7 @@ import React from 'react'
 
 function ItemListContainer(props) {
     return (
-        <div>
+        <div className="itemList">
             <h2>{props.textoProvisional}</h2>
             <p>Texto provisional</p>
         </div>

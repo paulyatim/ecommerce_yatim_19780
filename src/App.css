@@ -16,6 +16,9 @@
   margin: 0 20px;
 }
 
+.itemList {
+  margin-top: 20px;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
