@@ -9,8 +9,7 @@ function NavBar() {
             <div className="container-fluid">
                 <CartWidget/>
                 <a className="navbar-brand" href="{#}" id="pageTitle">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    E-Commerce Yatim
+                    Do-Nuts!
                 </a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
@@ -21,13 +20,10 @@ function NavBar() {
                             <a className="nav-link active" aria-current="page" href="{#}">Home</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="{#}">Page 1</a>
+                            <a className="nav-link" href="{#}">Our Menu</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="{#}">Page 2</a>
-                        </li>
-                        <li className="nav-item">
-                            <a className="nav-link" href="{#}">Page 3</a>
+                            <a className="nav-link" href="{#}">Contact</a>
                         </li>
                     </ul>
                     <form className="d-flex">

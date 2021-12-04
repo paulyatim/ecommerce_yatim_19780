@@ -2,9 +2,11 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40px;
+.loadingDonut {
+  margin: 20% auto;
   pointer-events: none;
+  width: 150px;
+
 }
 
 #pageTitle {
@@ -17,12 +19,17 @@
 }
 
 .itemList {
-  margin-top: 20px;
+  margin: 20px auto;
+  width: 90%;
+}
+
+.itemCountInput {
+  padding: 0 50px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  .loadingDonut {
+    animation: loadingDonut-spin infinite 2s linear;
   }
 }
 
@@ -41,7 +48,7 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
+@keyframes loadingDonut-spin {
   from {
     transform: rotate(0deg);
   }
