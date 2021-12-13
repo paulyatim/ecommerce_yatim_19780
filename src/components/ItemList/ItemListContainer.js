@@ -1,13 +1,27 @@
 import React from 'react'
-import ItemList from './ItemList'
+import { Link } from 'react-router-dom'
+import ItemList from "./ItemList";
+import '../../App.css';
 
-function ItemListContainer(props) {
-
+function ItemListContainer() {
 
     return (
-        <div className="itemList">
+        <div>
+            <nav className="categoriesNav">
+                <Link to={`/category`}>
+                    <button type="button" className="btn btn-outline-primary">All Donuts</button>
+                </Link>
+                <Link to={`/category/regular`}>
+                    <button type="button" className="btn btn-outline-primary">Regular Donuts</button>
+                </Link>
+                <Link to={`/category/filled`}>
+                    <button type="button" className="btn btn-outline-primary">Filled Donuts</button>
+                </Link>
+                <Link to={`/category/special`}>
+                    <button type="button" className="btn btn-outline-primary">Special Donuts</button>
+                </Link>
+            </nav>
             <ItemList/>
-            <h2>{props.textoProvisional}</h2>
         </div>
     )
 }

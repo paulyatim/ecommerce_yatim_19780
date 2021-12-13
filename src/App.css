@@ -18,9 +18,20 @@
   margin: 0 20px;
 }
 
+.categoriesNav {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 10px;
+}
+
 .itemList {
   margin: 20px auto;
   width: 90%;
+}
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .itemCountInput {
