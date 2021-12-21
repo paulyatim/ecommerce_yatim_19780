@@ -9,13 +9,26 @@
 
 }
 
+a {
+  text-decoration: none;
+}
+
+.cartIcon {
+  display: flex;
+  flex-direction: row;
+}
+
+#itemCountNavBar {
+  font-size: 15px;
+  padding: 5px 20px 0 5px;
+}
+
 #pageTitle {
   font-size: 24px;
 }
 
 .fa-shopping-cart {
   font-size: 24px;
-  margin: 0 20px;
 }
 
 .categoriesNav {

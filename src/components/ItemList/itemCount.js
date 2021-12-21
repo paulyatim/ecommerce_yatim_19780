@@ -11,16 +11,17 @@ const ItemCount = ({initial, stock, onAdd}) => {
         if(count > initial) setCount(count - 1);
     }   
 
-    // const handlerOnAdd=()=>{
-    //     setCount(initial);
-    // }
+    const handlerOnAdd=()=>{
+        onAdd(count);
+        setCount(initial);
+    }
 
     return (
         <div>
             <button className="btn btn-primary" onClick={handlerRm}>-</button>
             <label className ="itemCountInput">{count}</label>
             <button className="btn btn-primary" onClick={handlerAdd}>+</button><br/>
-            <button className="btn btn-outline-primary btn-block" onClick={() => onAdd(count)} disabled={count === 0}>Add</button>
+            <button className="btn btn-outline-primary btn-block" onClick={() => handlerOnAdd()} disabled={count === 0}>Add</button>
         </div>           
     )
 }

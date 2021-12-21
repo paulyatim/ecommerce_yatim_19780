@@ -1,23 +1,27 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import '../../App.css';
 import ItemCount from '../ItemList/itemCount';
 import {Link} from 'react-router-dom'
+import { CartContext } from '../context/CartContext';
 
 const loadImage = (imageName) => (require(`../../images/${imageName}`).default);
-//key={props.prod.id}
-function Detail(props) {
+//key={prod.id}
+function Detail({prod}) {
 
+    const {cartList, addToCart} = useContext(CartContext)
     const [goCart, setGoCart] = useState(false)
-    function onAdd (quantity) {
+    function onAddDetail (quantity) {
         setGoCart(true)
+        addToCart({...prod, quantity:quantity})
     }
+    console.log(cartList)
 
     return (
         <div >
-            <h3>{props.prod.name}</h3>
-            <img src={loadImage(props.prod.image)} alt={props.prod.name}/>
-            <p>{props.prod.price}</p>
-            <p>{props.prod.desc}</p>
+            <h3>{prod.name}</h3>
+            <img src={loadImage(prod.image)} alt={prod.name}/>
+            <p>{prod.price}</p>
+            <p>{prod.desc}</p>
             {goCart ?
                 <div>
                     <Link to={"/cart"}>
@@ -29,7 +33,7 @@ function Detail(props) {
                     </Link>
                 </div>
                 : 
-                <ItemCount initial={0} stock={props.prod.stock} onAdd={onAdd}/>
+                <ItemCount initial={0} stock={prod.stock} onAdd={onAddDetail}/>
             }
         </div>
     )

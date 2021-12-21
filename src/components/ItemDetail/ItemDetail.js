@@ -1,4 +1,4 @@
-import { getFetch } from "../../helpers/getFetch";
+import { Products } from "../../helpers/Products";
 import { useParams } from 'react-router-dom'
 import {useState, useEffect} from 'react'
 import Detail from "./Detail";
@@ -14,7 +14,7 @@ function ItemDetail() {
 
     useEffect(() => {
 
-        getFetch.then(res => setProduct(res.find(prod => prod.id === id))) 
+        Products.then(res => setProduct(res.find(prod => prod.id === id))) 
         .catch(error => console.log(error))
         .finally(()=>setLoading(false))
 

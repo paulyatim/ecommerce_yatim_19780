@@ -1,4 +1,4 @@
-const productos = [
+const products = [
     {id: "1", category: "regular", name: "Glazed Donut", stock: 20, image:"glazed.png", price:1.99, desc:"Short description of donut"},
     {id: "2", category: "regular", name: "Chocolate Glazed Donut", stock: 20, image:"chocolate-glazed.png", price:1.99, desc:"Short description of donut"},
     {id: "3", category: "regular", name: "Strawberry Iced Donut", stock: 20, image:"strawberry-iced.png", price:1.99, desc:"Short description of donut"},
@@ -27,8 +27,8 @@ const productos = [
     {id: "26", category: "special", name: "Pumpkin Spice Donut", stock: 20, image:"pumpkin-spice.png", price:2.49, desc:"Short description of donut"}
 ];
 
-export const getFetch = new Promise((resolve)=>{
+export const Products = new Promise((resolve)=>{
     setTimeout(()=>{
-        resolve(productos)
+        resolve(products)
     }, 2000)
 });
