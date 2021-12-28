@@ -1,25 +1,24 @@
-import { Products } from "../../helpers/Products";
+//import { Products } from "../../helpers/Products";
 import { useParams } from 'react-router-dom'
 import {useState, useEffect} from 'react'
+import {doc, getDoc, getFirestore} from 'firebase/firestore'
 import Detail from "./Detail";
 import '../../App.css';
 import loadingImg from "../../images/loading-donut.png"
 
 function ItemDetail() {
 
-    const [product, setProduct] = useState([]);
+    const [product, setProduct] = useState({});
     const [loading, setLoading] = useState(true);
     const {id} = useParams();
 
-
     useEffect(() => {
-
-        Products.then(res => setProduct(res.find(prod => prod.id === id))) 
+        const db = getFirestore();
+        const queryDb = doc(db, 'products', id); 
+        getDoc(queryDb).then(res => setProduct({ id: res.id, ...res.data()}))
         .catch(error => console.log(error))
         .finally(()=>setLoading(false))
-
     }, [id])
-
 
     return (
         <div>

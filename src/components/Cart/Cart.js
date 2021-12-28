@@ -1,31 +1,20 @@
 import {useContext} from 'react'
 import { CartContext } from '../context/CartContext'
-import {Link} from 'react-router-dom'
-
-const loadImage = (imageName) => (require(`../../images/${imageName}`).default);
+import {CartItem} from './CartItem'
+import EmptyCart from './EmptyCart'
 
 function Cart() {
 
     const {cartList, clearCart, totalPrice} = useContext(CartContext)
+    
+    if (cartList.length === 0) {
+        return <EmptyCart/>
+    }
 
     return (
         <div>
             <div className="row row-cols-1 row-cols-md-4">
-                {cartList.map(prod =>
-                     <div key={prod.id}>
-                        <div className="col">
-                            <div className="card h-100">
-                                <Link to={`/detail/${prod.id}`}>
-                                    <img src={loadImage(prod.image)} className="card-img-top" alt={prod.name}/>
-                                </Link>
-                                <div className="card-body">
-                                    <h5 className="card-title">{prod.name}</h5>
-                                    <h6 className='card-subtitle'>{prod.quantity} - $ {(prod.price * prod.quantity).toFixed(2)}</h6>
-                                </div>
-                            </div>
-                        </div>
-                     </div>
-                    )
+                {cartList.map(prod => <CartItem prod={prod} key={prod.id}/>)
                 }
             </div>
             <h3>$ {totalPrice()}</h3>

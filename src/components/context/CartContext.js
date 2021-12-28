@@ -22,6 +22,10 @@ export function CartContextProvider({children}) {
         setCartList([])
     }
 
+    function removeItem(item) {
+        setCartList(cartList.filter(items=> items.id !== item.id));
+    }
+
     function numberOfItems() {
         let totalQuantity = 0;
         if (cartList !== []) {
@@ -43,10 +47,9 @@ export function CartContextProvider({children}) {
     }
 
     return (
-        <CartContext.Provider value={{cartList, addToCart, clearCart, numberOfItems, totalPrice}}>
+        <CartContext.Provider value={{cartList, addToCart, clearCart, removeItem, numberOfItems, totalPrice}}>
             {children}
         </CartContext.Provider>
     )
 }
 
-//export default CartContextProvider

@@ -8,13 +8,14 @@ const ItemCount = ({initial, stock, onAdd}) => {
     }
 
     const handlerRm =()=>{
-        if(count > initial) setCount(count - 1);
+        if(count > 0) setCount(count - 1);
     }   
 
     const handlerOnAdd=()=>{
         onAdd(count);
         setCount(initial);
     }
+    
 
     return (
         <div>

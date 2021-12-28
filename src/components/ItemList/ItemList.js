@@ -1,27 +1,31 @@
 import { useParams } from 'react-router-dom'
-import { Products } from "../../helpers/Products";
 import React, {useState, useEffect} from 'react'
 import Item from "./Item";
 import '../../App.css';
 import loadingImg from "../../images/loading-donut.png"
+import { getFirestore, collection, getDocs, query, orderBy, where} from 'firebase/firestore';
 
 function ItemList() {
     
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
-    const { idCat } = useParams();
+    const { category } = useParams();
 
     useEffect(() => {
-        if (idCat) {
-            Products.then(res => setProducts(res.filter(prod => prod.category === idCat))) 
+        if (category) {
+            const db = getFirestore();
+            const queryCollection = query(collection(db, 'products'), where('category', '==', category), orderBy('name'));
+            getDocs(queryCollection).then(res => setProducts(res.docs.map(prod => ({id: prod.id, ...prod.data()}))))
             .catch(error => console.log(error))
-            .finally(()=>setLoading(false))            
+            .finally(()=>setLoading(false))
         } else {
-            Products.then(res => setProducts(res)) 
+            const db = getFirestore();
+            const queryCollection = query(collection(db, 'products'), orderBy('name'))
+            getDocs(queryCollection).then(res => setProducts(res.docs.map(prod => ({id: prod.id, ...prod.data()}))))
             .catch(error => console.log(error))
-            .finally(()=>setLoading(false))               
+            .finally(()=>setLoading(false))
         }
-    }, [idCat])
+    }, [category])
 
 
     return (
