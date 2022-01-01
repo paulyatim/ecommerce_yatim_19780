@@ -1,29 +1,56 @@
 import {useContext} from 'react'
 import '../../App.css';
 import {Link} from 'react-router-dom'
-import ItemCount from './../ItemList/itemCount'
 import { CartContext } from '../context/CartContext';
+import CartCount from './CartCount';
 
 export function CartItem({prod}) {
     const {addToCart, removeItem} = useContext(CartContext)
     
-    function onAddCart (quantity) {
+    function onChange (quantity) {
         addToCart({...prod, quantity:quantity})
     }
 
     return (
-        <div className="col">
-            <div className="card h-100">
-                <Link to={`/detail/${prod.id}`}>
-                    <img src={prod.image} className="card-img-top" alt={prod.name}/>
-                </Link>
-                <div className="card-body">
+        <div className="card mb-3 cartCard">
+            <div className="row cartCardData">
+                <div className="col-md-2">
+                    <Link to={`/detail/${prod.id}`}>
+                        <img src={prod.image} className="card-img" alt={prod.name}/>
+                    </Link>
+                </div>
+                <div className="col-md-4">
                     <h5 className="card-title">{prod.name}</h5>
-                    <h6 className='card-subtitle'>{prod.quantity} - $ {(prod.price * prod.quantity).toFixed(2)}</h6>
-                    <ItemCount initial={0} stock={prod.stock} onAdd={onAddCart}/>
-                    <button onClick={()=>removeItem(prod)} type="button" className="btn btn-danger">Remove item</button>
+                </div>
+                <div className="col-md-2">
+                    <h5 className='card-title'>$ {(prod.price * prod.quantity).toFixed(2)}</h5>
+                </div>
+                <div className="col-md-1">
+                    <h5 className='card-title'>{prod.quantity}</h5>
+                </div>
+                <div className="col-md-2">
+                    <CartCount quantity={prod.quantity} stock={prod.stock} onChange={onChange}/>
+                </div>
+                <div className="col-md-1">
+                    <button onClick={()=>removeItem(prod)} type="button" className="btn close btn-outline-primary btnRm">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
             </div>
         </div>
+        // <div className="row">
+        //     <div className="card h-100 no-gutters">
+        //         <Link to={`/detail/${prod.id}`}>
+        //             <img src={prod.image} className="card-img" alt={prod.name}/>
+        //         </Link>
+        //         <div className="card-body">
+        //             <h5 className="card-title">{prod.name}</h5>
+        //             <h6 className='card-subtitle'>$ {(prod.price * prod.quantity).toFixed(2)}</h6>
+        //             <h6 className='card-subtitle'>{prod.quantity}</h6>
+        //             <CartCount quantity={prod.quantity} stock={prod.stock} onChange={onChange}/>
+        //             <button onClick={()=>removeItem(prod)} type="button" className="btn btn-danger">Remove item</button>
+        //         </div>
+        //     </div>
+        // </div>
     )
 }

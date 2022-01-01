@@ -14,13 +14,13 @@ function ItemList() {
     useEffect(() => {
         if (category) {
             const db = getFirestore();
-            const queryCollection = query(collection(db, 'products'), where('category', '==', category), orderBy('name'));
+            const queryCollection = query(collection(db, 'products'), where('category', '==', category), orderBy('price'));
             getDocs(queryCollection).then(res => setProducts(res.docs.map(prod => ({id: prod.id, ...prod.data()}))))
             .catch(error => console.log(error))
             .finally(()=>setLoading(false))
         } else {
             const db = getFirestore();
-            const queryCollection = query(collection(db, 'products'), orderBy('name'))
+            const queryCollection = query(collection(db, 'products'), orderBy('price'))
             getDocs(queryCollection).then(res => setProducts(res.docs.map(prod => ({id: prod.id, ...prod.data()}))))
             .catch(error => console.log(error))
             .finally(()=>setLoading(false))

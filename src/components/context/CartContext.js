@@ -46,8 +46,18 @@ export function CartContextProvider({children}) {
         return totalPrice.toFixed(2);
     }
 
+    function inStock(itemId) {
+        const index = cartList.findIndex(i => i.id === itemId)
+        if (index !== -1) {
+            if (cartList[index].quantity === cartList[index].stock) {
+                return false
+            }
+        }
+        return true
+    }
+
     return (
-        <CartContext.Provider value={{cartList, addToCart, clearCart, removeItem, numberOfItems, totalPrice}}>
+        <CartContext.Provider value={{cartList, addToCart, clearCart, removeItem, numberOfItems, totalPrice, inStock}}>
             {children}
         </CartContext.Provider>
     )

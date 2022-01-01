@@ -1,3 +1,8 @@
+body {
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  background-color: rgb(246, 241, 232);
+}
+
 .App {
   text-align: center;
 }
@@ -13,24 +18,32 @@ a {
   text-decoration: none;
 }
 
+.navbar {
+  background-color: rgb(246, 241, 232);
+}
 .cartIcon {
   display: flex;
   flex-direction: row;
-  padding: 5px 20px 0 5px;
+  padding: 0 20px 0 5px;
 }
-
 .itemCountNavBar {
-  font-size: 15px;
+  font-size: 20px;
   padding-left: 5px;
   padding-top: 5px;
+  color: black;
 }
-
 #pageTitle {
+  font-size: 54px;
+}
+.fa-shopping-cart {
+  font-size: 30px;
+  color: rgb(137,55,41);
+}
+#navbarSupportedContent {
   font-size: 24px;
 }
-
-.fa-shopping-cart {
-  font-size: 24px;
+.nav-item {
+  padding: 0 20px;
 }
 
 .categoriesNav {
@@ -38,20 +51,125 @@ a {
   justify-content: space-evenly;
   margin: 10px;
 }
+.categoriesBtn {
+  font-size: 20px;
+}
+.btn-outline-primary, .btn-outline-primary:disabled {
+  color: rgb(137,55,41);
+  border-color: rgb(137,55,41);
+}
+.btn-outline-primary:hover, .btn-outline-primary:active {
+  color: rgb(236,162,173);
+  background-color: rgb(137,55,41);
+  border-color: rgb(137,55,41);
+}
+/* .btn-check:focus+.btn-outline-primary, .btn-outline-primary:focus {
+  box-shadow: 0 0 0 0.25rem rgb(137 55 41 / 50%);
+} */
+.btn-check:focus+.btn-outline-primary, .btn-outline-primary:focus, check:active+.btn-outline-primary:focus, .btn-check:checked+.btn-outline-primary:focus, .btn-outline-primary.active:focus, .btn-outline-primary.dropdown-toggle.show:focus, .btn-outline-primary:active:focus {
+  box-shadow: 0 0 0 0.25rem rgb(137 55 41 / 50%);
+}
 
 .itemList {
   margin: 20px auto;
   width: 90%;
 }
-
 .row {
-  margin-left: 0;
-  margin-right: 0;
+  margin: 0;
+}
+.card {
+  background: none;
+  border: none;
+}
+.card-body {
+  padding: 0;
+}
+.card-footer {
+  background: none;
 }
 
-.itemCountInput {
-  padding: 0 50px;
+.itemCounter {
+  display: flex;
+  flex-direction: column;
 }
+.counterContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px 0;
+}
+.itemCountInput {
+  font-size: 18px;
+}
+.btnCounter {
+  font-size: 30px;
+  width: 40%;
+  line-height: 20px;
+}
+.btn-primary, .btn-primary:hover, .btn-primary:disabled, .btn-primary:active {
+  color: #fff;
+  background-color: rgb(236,162,173);
+  border-color: rgb(236,162,173);
+}
+.btn-check:focus+.btn-primary, .btn-primary:focus {
+  color: #fff;
+  background-color: rgb(236,162,173);
+  border-color: rgb(236,162,173);
+  box-shadow: 0 0 0 0.25rem rgb(236 162 173 / 50%);
+}
+.addBtnContainer {
+  display: block;
+  margin: 5px 0;
+}
+.addBtn {
+  font-size: 20px;
+  width: 100%;
+}
+
+.card-title {
+  font-size: 24px;
+}
+.card-subtitle {
+  font-size: 20px;
+}
+
+
+
+.cartCard {
+  max-width: 80%;
+  margin: 10px auto;
+}
+.cartCardData {
+  align-items: center;
+}
+.btnRm, .btnRm:hover, .btnRm:active {
+  font-size: 40px;
+  line-height: 20px;
+  border: none;
+  background: none;
+}
+.btnCart {
+  font-size: 30px;
+  line-height: 20px;
+  margin: 0 10px;
+}
+
+
+
+.detailCard {
+  width: 70%;
+  align-items: center;
+  margin: 40px auto;
+}
+.detailCardData {
+  text-align: left;
+  border-left: solid;
+}
+.detailImg {
+  width: 100%;
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .loadingDonut {

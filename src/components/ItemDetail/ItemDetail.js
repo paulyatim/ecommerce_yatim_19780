@@ -22,13 +22,11 @@ function ItemDetail() {
 
     return (
         <div>
-            <div className="row row-cols-1 row-cols-md-3 g-4">
             {loading ? 
                 <img src={loadingImg} className="loadingDonut" alt="loading..."/>
                 :
                 <Detail prod={product}/>
             }
-            </div>
         </div>
     )
 

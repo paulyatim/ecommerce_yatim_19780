@@ -13,13 +13,13 @@ function Cart() {
 
     return (
         <div>
-            <div className="row row-cols-1 row-cols-md-4">
+            <div className="col row-cols-md-1">
                 {cartList.map(prod => <CartItem prod={prod} key={prod.id}/>)
                 }
             </div>
-            <h3>$ {totalPrice()}</h3>
-            <button onClick={clearCart} type="button" className="btn btn-primary">Clear</button>
-            <button type="button" className="btn btn-primary">Check-out</button>
+            <h3 className='totalPriceCart'>Total: $ {totalPrice()}</h3>
+            <button onClick={clearCart} type="button" className="btn btn-outline-primary btnCart">Clear</button>
+            <button type="button" className="btn btn-outline-primary btnCart">Check-out</button>
         </div>
     )
 }

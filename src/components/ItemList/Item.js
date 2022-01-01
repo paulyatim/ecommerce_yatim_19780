@@ -5,11 +5,16 @@ import ItemCount from './itemCount'
 import { CartContext } from '../context/CartContext';
 
 function Item({prod}) {
-    const {addToCart} = useContext(CartContext)
+    const {addToCart, inStock} = useContext(CartContext)
 
     function onAddList (quantity) {
         addToCart({...prod, quantity:quantity})
     }
+
+    if (!inStock(prod.id)) {
+        console.log("There's no more " + prod.name)
+    }
+
     return (
         <div className="col">
             <div className="card h-100">
@@ -21,7 +26,7 @@ function Item({prod}) {
                     <h6 className='card-subtitle'>$ {prod.price}</h6>
                 </div>
                 <div className="card-footer">
-                    <ItemCount initial={0} stock={prod.stock} onAdd={onAddList}/>
+                    <ItemCount id={prod.id} initial={0} stock={prod.stock} onAdd={onAddList}/>
                 </div>
             </div>
         </div>
