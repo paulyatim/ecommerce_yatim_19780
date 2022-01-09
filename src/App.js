@@ -7,6 +7,7 @@ import ItemDetailContainer from './components/ItemDetail/ItemDetailContainer';
 import ItemListContainer from './components/ItemList/ItemListContainer';
 import NavBar from './components/NavBar/NavBar';
 import { CartContextProvider } from './components/context/CartContext';
+import Footer from './components/Footer/Footer';
 
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
               element={<Cart/>}
             />
           </Routes>
+          <Footer/>
         </div>
       </BrowserRouter>
     </CartContextProvider>

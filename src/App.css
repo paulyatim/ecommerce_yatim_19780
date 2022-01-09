@@ -154,6 +154,37 @@ a {
   line-height: 20px;
   margin: 0 10px;
 }
+.modal-content {
+  font-size: 20px;
+  background-color: rgb(246, 241, 232);
+  border-style: solid;
+  border-color: rgb(236,162,173);
+  border-width: 5px;
+}
+#checkoutForm div {
+  text-align: left;
+}
+#checkoutForm button {
+  margin: 5px 20px;
+  font-size: 18px;
+}
+.form-label {
+  margin-left: 5px;
+}
+.confirmationModal h3 {
+  font-size: 40px;
+}
+.confirmationModal p {
+  font-size: 24px;
+}
+.confirmationModal span {
+  font-size: 28px;
+  font-weight: bold;
+  color: rgb(137,55,41);
+}
+.confirmationModal button {
+  font-size: 24px;
+}
 
 
 
@@ -168,6 +199,20 @@ a {
 }
 .detailImg {
   width: 100%;
+}
+
+footer p {
+  font-size: 20px;
+}
+footer a {
+  text-decoration: none;
+  color: black;
+}
+footer a:hover {
+  color: purple;
+}
+footer i {
+  font-size: 30px;
 }
 
 
