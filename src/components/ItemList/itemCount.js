@@ -33,7 +33,12 @@ const ItemCount = ({id, initial, stock, onAdd}) => {
                 <button className="btn btn-primary btnCounter" onClick={handlerAdd} disabled={count + itemsInCart() === stock}>+</button>
             </div>
             <div className='addBtnContainer'>
+                {stock === 0
+                ?
+                <button className="btn btn-outline-primary btn-block addBtn" disabled>No Stock</button>
+                :
                 <button className="btn btn-outline-primary btn-block addBtn" onClick={() => handlerOnAdd()} disabled={count === 0}>Add</button>
+                }
             </div>
         </div>           
     )

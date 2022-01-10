@@ -1,12 +1,11 @@
 import {useState, useContext} from 'react'
-import {getFirestore, collection, addDoc} from 'firebase/firestore'
+import {getFirestore, collection, addDoc, writeBatch, doc} from 'firebase/firestore'
 import { CartContext } from '../../context/CartContext'
 import {Link} from 'react-router-dom'
 
 function Checkout() {
 
-    const initialFormValues = { name: "", email: "", confirmEmail: ""};
-    const [formValues, setFormValues] = useState(initialFormValues);
+    const [formValues, setFormValues] = useState({ name: "", email: "", confirmEmail: ""});
     const [formError, setFormError] = useState("");
     const {cartList, totalPrice, clearCart} = useContext(CartContext);
     const [orderMade, setOrderMade] = useState(false);
@@ -31,12 +30,25 @@ function Checkout() {
                         total: totalPrice()}
 
             const db = getFirestore()
-            const orderCollection  = collection(db, 'orders')
-            addDoc(orderCollection, order)
-            .then(resp => setOrderID(resp.id))
-            .catch(error => console.log(error))
+            makeOrder(db, order);
+            updateStock(db, order);
             setOrderMade(true);
         }
+    }
+    function makeOrder(db, order) {
+        const orderCollection  = collection(db, 'orders');
+        addDoc(orderCollection, order)
+        .then(resp => setOrderID(resp.id))
+        .catch(error => console.log(error))
+    }
+    function updateStock(db, order) {
+        const batch = writeBatch(db);
+        order.items.forEach(prod => {
+            let docUpdate = doc(db, 'products', prod.id);
+            let stock = cartList.find(i => i.id === prod.id).stock;
+            batch.update(docUpdate, {stock: stock - prod.quantity});
+        })
+        batch.commit()
     }
 
     return (
