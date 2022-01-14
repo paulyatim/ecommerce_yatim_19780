@@ -1,5 +1,7 @@
 # Proyecto final del curso de Node.js de Coderhouse ("Do-Nuts!")
 
+![site image](https://firebasestorage.googleapis.com/v0/b/do-nuts.appspot.com/o/Screen%20Shot%202022-01-14%20at%2012.21.42.png?alt=media&token=c52eacac-d9b2-4bbe-9fdb-9e9c55bff263)
+
 ## Introducción
 
 Este proyecto consiste en simular un e-commerce (una tienda de donas en este caso), usando React.js principalmente. En este sitio web, el usuario puede seleccionar productos de un catálogo, las puede agregar a su carrito, puede editar el carrito y puede realizar la compra.
@@ -30,6 +32,8 @@ Usado para montar y hacer un render de los componentes solo cuando se los tiene 
 ### useContext (React)
 useContext permite crear un contexto donde se puede tener todos los datos, estados y funciones que se quieran pasar a cualquier componente.
 
+### useParams (React-Router-Dom)
+Con useParams, se detecta el parámetro que se le incica por la URL.
 
-## El sitio
+## El sitio web
 [Do-Nuts!](https://do-nuts.netlify.app/)
