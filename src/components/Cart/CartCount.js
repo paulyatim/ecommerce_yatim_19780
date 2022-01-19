@@ -1,5 +1,3 @@
-// import {useState} from 'react'
-
 const CartCount = ({quantity, stock, onChange}) => {
 
     const handlerAdd =()=>{
@@ -7,21 +5,19 @@ const CartCount = ({quantity, stock, onChange}) => {
             onChange(1);
         } 
     }
-
     const handlerRm =()=>{
         if(quantity > 1) {
             onChange(-1);
         } 
     }
     
-
     return (
         <div  className='counterContainer'>
             <button className="btn btn-primary btnCounter" onClick={() => handlerRm()} disabled={quantity === 1}>-</button>
             <button className="btn btn-primary btnCounter" onClick={() => handlerAdd()} disabled={quantity === stock}>+</button>
         </div>           
-    )
+    );
 }
 
 
-export default CartCount
+export default CartCount;

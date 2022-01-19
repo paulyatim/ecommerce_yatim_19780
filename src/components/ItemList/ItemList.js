@@ -1,9 +1,9 @@
-import { useParams } from 'react-router-dom'
-import React, {useState, useEffect} from 'react'
+import {useParams} from 'react-router-dom';
+import {useState, useEffect} from 'react';
 import Item from "./Item";
 import '../../App.css';
-import loadingImg from "../../images/loading-donut.png"
-import { getFirestore, collection, getDocs, query, orderBy, where} from 'firebase/firestore';
+import loadingImg from "../../images/loading-donut.png";
+import {getFirestore, collection, getDocs, query, orderBy, where} from 'firebase/firestore';
 
 function ItemList() {
     
@@ -12,20 +12,15 @@ function ItemList() {
     const { category } = useParams();
 
     useEffect(() => {
-        if (category) {
-            const db = getFirestore();
-            const queryCollection = query(collection(db, 'products'), where('category', '==', category), orderBy('price'));
-            getDocs(queryCollection).then(res => setProducts(res.docs.map(prod => ({id: prod.id, ...prod.data()}))))
-            .catch(error => console.log(error))
-            .finally(()=>setLoading(false))
-        } else {
-            const db = getFirestore();
-            const queryCollection = query(collection(db, 'products'), orderBy('price'))
-            getDocs(queryCollection).then(res => setProducts(res.docs.map(prod => ({id: prod.id, ...prod.data()}))))
-            .catch(error => console.log(error))
-            .finally(()=>setLoading(false))
-        }
-    }, [category])
+        const db = getFirestore();
+        const queryCollection = category ?
+            query(collection(db, 'products'), where('category', '==', category), orderBy('price'))
+            :
+            query(collection(db, 'products'), orderBy('price'));
+        getDocs(queryCollection).then(res => setProducts(res.docs.map(prod => ({id: prod.id, ...prod.data()}))))
+        .catch(error => console.log(error))
+        .finally(()=>setLoading(false));
+    }, [category]);
 
 
     return (
@@ -38,7 +33,7 @@ function ItemList() {
                 }
             </div>
         </div>
-    )
+    );
 }
 
-export default ItemList
+export default ItemList;

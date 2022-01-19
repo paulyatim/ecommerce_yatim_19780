@@ -1,7 +1,6 @@
-import React from 'react'
 import '../../App.css';
 import CartWidget from './CartWidget';
-import {Link} from "react-router-dom"
+import {Link} from "react-router-dom";
 
 function NavBar() {
     
@@ -27,16 +26,11 @@ function NavBar() {
                                 Our Donuts!
                             </Link>
                         </li>
-                        <li className="nav-item">
-                            <Link to="/" className="nav-link">
-                                Contact
-                            </Link>
-                        </li>
                     </ul> 
                 </div>
             </div>
         </nav>
-    )
+    );
 }
 
-export default NavBar
+export default NavBar;

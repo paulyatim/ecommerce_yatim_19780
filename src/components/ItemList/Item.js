@@ -1,18 +1,14 @@
-import React, {useContext} from 'react'
-import '../../App.css';
-import {Link} from 'react-router-dom'
-import ItemCount from './itemCount'
-import { CartContext } from '../context/CartContext';
+import {useContext} from 'react';
+import {Link} from 'react-router-dom';
+import ItemCount from './itemCount';
+import {CartContext} from '../context/CartContext';
 
 function Item({prod}) {
-    const {addToCart, inStock} = useContext(CartContext)
+
+    const {addToCart} = useContext(CartContext);
 
     function onAddList (quantity) {
-        addToCart({...prod, quantity:quantity})
-    }
-
-    if (!inStock(prod.id)) {
-        console.log("There's no more " + prod.name)
+        addToCart({...prod, quantity:quantity});
     }
 
     return (
@@ -30,7 +26,7 @@ function Item({prod}) {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
-export default Item
+export default Item;

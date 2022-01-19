@@ -1,6 +1,4 @@
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
-//import React, {useState} from 'react'
-
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import './App.css';
 import Cart from './components/Cart/Cart';
 import ItemDetailContainer from './components/ItemDetail/ItemDetailContainer';

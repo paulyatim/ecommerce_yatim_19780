@@ -1,16 +1,17 @@
-import React, {useState, useContext} from 'react'
+import {useState, useContext} from 'react';
 import '../../App.css';
 import ItemCount from '../ItemList/itemCount';
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
 
 function Detail({prod}) {
 
-    const {addToCart} = useContext(CartContext)
-    const [goCart, setGoCart] = useState(false)
+    const {addToCart} = useContext(CartContext);
+    const [goCart, setGoCart] = useState(false);
+    
     function onAddDetail (quantity) {
-        setGoCart(true)
-        addToCart({...prod, quantity:quantity})
+        setGoCart(true);
+        addToCart({...prod, quantity:quantity});
     }
 
     return (
@@ -37,7 +38,7 @@ function Detail({prod}) {
                 <p className='card-subtitle'>{prod.desc}</p>
             </div>
         </div>
-    )
+    );
 }
 
-export default Detail
+export default Detail;

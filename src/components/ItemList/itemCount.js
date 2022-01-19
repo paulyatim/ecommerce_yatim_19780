@@ -1,30 +1,29 @@
-import {useState, useContext} from 'react'
-import { CartContext } from '../context/CartContext';
+import {useState, useContext} from 'react';
+import {CartContext} from '../context/CartContext';
 
 const ItemCount = ({id, initial, stock, onAdd}) => {
+
     const [count, setCount] = useState(initial);
     const {cartList} = useContext(CartContext)
-    function itemsInCart() {
-        const index = cartList.findIndex(i => i.id === id)
-        if (index === -1) {
-            return 0
-        }
-        return cartList[index].quantity
-    }
 
+    function itemsInCart() {
+        const index = cartList.findIndex(i => i.id === id);
+        if (index === -1) {
+            return 0;
+        }
+        return cartList[index].quantity;
+    }
     const handlerAdd =()=>{
         if(count < (stock - itemsInCart())) setCount(count + 1);
     }
-
     const handlerRm =()=>{
         if(count > 0) setCount(count - 1);
-    }   
-
+    }
     const handlerOnAdd=()=>{
         onAdd(count);
         setCount(initial);
     }
-    
+
     return (
         <div className='itemCounter'>
             <div className='counterContainer'>
@@ -41,8 +40,8 @@ const ItemCount = ({id, initial, stock, onAdd}) => {
                 }
             </div>
         </div>           
-    )
+    );
 }
 
 
-export default ItemCount
+export default ItemCount;

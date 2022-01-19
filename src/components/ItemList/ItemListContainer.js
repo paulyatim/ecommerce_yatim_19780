@@ -1,5 +1,4 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom';
 import ItemList from "./ItemList";
 import '../../App.css';
 
@@ -23,7 +22,7 @@ function ItemListContainer() {
             </nav>
             <ItemList/>
         </div>
-    )
+    );
 }
 
-export default ItemListContainer
+export default ItemListContainer;

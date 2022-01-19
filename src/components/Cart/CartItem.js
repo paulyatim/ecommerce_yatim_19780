@@ -1,14 +1,15 @@
-import {useContext} from 'react'
+import {useContext} from 'react';
 import '../../App.css';
-import {Link} from 'react-router-dom'
-import { CartContext } from '../context/CartContext';
+import {Link} from 'react-router-dom';
+import {CartContext} from '../context/CartContext';
 import CartCount from './CartCount';
 
 export function CartItem({prod}) {
-    const {addToCart, removeItem} = useContext(CartContext)
+    
+    const {addToCart, removeItem} = useContext(CartContext);
     
     function onChange (quantity) {
-        addToCart({...prod, quantity:quantity})
+        addToCart({...prod, quantity:quantity});
     }
 
     return (
@@ -38,5 +39,5 @@ export function CartItem({prod}) {
                 </div>
             </div>
         </div>
-    )
+    );
 }

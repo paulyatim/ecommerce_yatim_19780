@@ -1,5 +1,4 @@
-import React from 'react'
-import ItemDetail from './ItemDetail'
+import ItemDetail from './ItemDetail';
 
 function ItemDetailContainer() {
 
@@ -10,4 +9,4 @@ function ItemDetailContainer() {
     )
 }
 
-export default ItemDetailContainer
+export default ItemDetailContainer;
