@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# Proyecto final del curso de Node.js de Coderhouse ("Do-Nuts!")
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![site image](https://firebasestorage.googleapis.com/v0/b/do-nuts.appspot.com/o/Screen%20Shot%202022-01-14%20at%2012.21.42.png?alt=media&token=c52eacac-d9b2-4bbe-9fdb-9e9c55bff263)
 
-## Available Scripts
+## Introducción
 
-In the project directory, you can run:
+Este proyecto consiste en simular un e-commerce (una tienda de donas en este caso), usando React.js principalmente. En este sitio web, el usuario puede seleccionar productos de un catálogo, las puede agregar a su carrito, puede editar el carrito y puede realizar la compra.
 
-### `npm start`
+## Dependencias
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Firebase
+Se utiliza Firebase para guardar en Firestore, una base de datos, los productos del sitio con los datos de cada uno. También, con Firebase, se pueden crear usuarios para registrar cada compra y asignarle un código de compra.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Bootstrap
+Con Bootstrap, se utilizaron plantillas de diseño para diversas funciones y componentes, como el navegador, los items de cada producto, el pie de página, los botones, formularios y modals. Las clases de Bootstrap ayudaron a hacer la maquetación del sitio mucho más rápido y sencillo, y a la vez hace el sitio responsive.
 
-### `npm test`
+### Font Awesome
+De Font Awesome, se importaron los íconos para el carrito y para el pie de página.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### React-Router-Dom
+Esta librería se encarga de generar rutas dinámicas, facilitando la navegabilidad del sitio.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Hooks implementados
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### useState (React)
+Usado para generar estados locales al componente y guardar dichos estados para luego poder modificarlos.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### useEffect (React)
+Usado para montar y hacer un render de los componentes solo cuando se los tiene que mostrar.
 
-### `npm run eject`
+### useContext (React)
+useContext permite crear un contexto donde se puede tener todos los datos, estados y funciones que se quieran pasar a cualquier componente.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### useParams (React-Router-Dom)
+Con useParams, se detecta el parámetro que se le incica por la URL.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## El sitio web
+[Do-Nuts!](https://do-nuts.netlify.app/)
